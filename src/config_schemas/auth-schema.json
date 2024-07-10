@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+      "secret": {
+        "type": "string",
+        "required": true
+      },
+      "expiresIn": {
+        "type": "number",
+        "required": true
+      }
+    }
+  }
+  

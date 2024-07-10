@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+      "port": {
+        "type": "number",
+        "required": true
+      },
+      "hostname": {
+        "type": "string",
+        "required": true
+      }
+    }
+  }
+  

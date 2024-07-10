@@ -17,15 +17,16 @@ export async function loadConfigurations(): Promise<Config> {
       const namespace = file.split('.').shift();
       console.log(`Loaded config for namespace: ${namespace}`, fileConfig);
       config = deepmerge(config, { [namespace]: fileConfig });
-    } else if (ext === 'json') {
-      const fileConfig = JSON.parse(fs.readFileSync(`./src/config_files/${file}`, 'utf8')) as Record<string, any>;
-      const namespace = file.split('.').shift();
-      console.log(`Loaded config for namespace: ${namespace}`, fileConfig);
-      config = deepmerge(config, { [namespace]: fileConfig });
     }
   }
 
-  console.log('Merged Config:', config);
+  console.log('Merged Config before AWS:', config);
+
+  // Uncomment the lines below to enable AWS Secrets loading
+  // const awsSecrets = await loadAwsSecrets('my-database-config', 'ap-south-1');
+  // config = deepmerge(config, { database: awsSecrets.database });
+
+  console.log('Merged Config after AWS:', config);
 
   const validatedConfig = plainToClass(Config, config);
   const errors = validateSync(validatedConfig, { skipMissingProperties: false });

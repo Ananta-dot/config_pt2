@@ -6,20 +6,22 @@ export class AppService {
   constructor(private config: Config) {}
 
   public show(): any {
-    const appFoo = this.config.app.foo;
-    const dbHost = this.config.database.host;
-    const dbPort = this.config.database.port;
-    const authSecret = this.config.auth.secret;
-    const authExpiresIn = this.config.auth.expiresIn;
-    const loggingLevel = this.config.logging.level;
-    const loggingFormat = this.config.logging.format;
-    const serverPort = this.config.server.port;
-    const serverHostname = this.config.server.hostname;
+    const appFoo = this.config.app?.foo;  
+    const dbHost = this.config.database?.host;
+    const dbPort = this.config.database?.port;
+    const dbName = this.config.database?.table?.name;
+    const authSecret = this.config.auth?.secret;
+    const authExpiresIn = this.config.auth?.expiresIn;
+    const loggingLevel = this.config.logging?.level;
+    const loggingFormat = this.config.logging?.format;
+    const serverPort = this.config.server?.port;
+    const serverHostname = this.config.server?.hostname;
 
     const out = [
       `app.foo: ${appFoo}`,
       `database.host: ${dbHost}`,
       `database.port: ${dbPort}`,
+      `database.table.name: ${dbName}`,
       `auth.secret: ${authSecret}`,
       `auth.expiresIn: ${authExpiresIn}`,
       `logging.level: ${loggingLevel}`,

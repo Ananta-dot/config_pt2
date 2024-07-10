@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+      "level": {
+        "type": "string",
+        "required": true
+      },
+      "format": {
+        "type": "string",
+        "required": true
+      }
+    }
+  }
+  

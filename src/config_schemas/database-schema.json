@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+      "host": {
+        "type": "string",
+        "required": true
+      },
+      "port": {
+        "type": "number",
+        "required": true
+      },
+      "table": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          }
+        },
+        "required": true
+      }
+    }
+  }
+  
